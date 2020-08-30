@@ -15,6 +15,10 @@ links to the tutorials and docs for those who want to follow along.
 ### React
 * [x] [Intro to React](tutorial-1/README.md)
 * [ ] [Testing Components](https://reactjs.org/docs/testing.html)
+* [ ] Websockets + React
+  * [ ] [Pusher Tutorial](https://pusher.com/tutorials/react-websockets) 
+* [ ] GraphQL + React
+* [ ] [Auth0 React SDK](https://auth0.com/docs/libraries/auth0-react)
 
 ### NextJS
 * [ ] [Basic NextJS Application](https://nextjs.org/learn/basics/create-nextjs-app)
