@@ -12,6 +12,9 @@ within React, Yarn aand Next.js and kind of do a daily kata practcing each. The
 list below is the topics I plan to go over to get familiar and up to speed, with
 links to the tutorials and docs for those who want to follow along.
 
+
+### Typescript
+
 ### React
 * [x] [Intro to React](tutorial-1/README.md)
 * [ ] [Testing Components](https://reactjs.org/docs/testing.html)
