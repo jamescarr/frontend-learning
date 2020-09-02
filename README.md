@@ -25,7 +25,7 @@ links to the tutorials and docs for those who want to follow along.
 ### React
 * [x] [Intro to React](tutorial-1/README.md)
 * [ ] [Testing Components](https://reactjs.org/docs/testing.html)
-  * [x] [Intro to Jest](testing/README.md)
+  * [x] [Intro to Jest](testing/)
   * [ ] [Testing React Components in Jest](https://jestjs.io/docs/en/tutorial-react)
 * [ ] Websockets + React
   * [ ] [Pusher Tutorial](https://pusher.com/tutorials/react-websockets) 
@@ -33,7 +33,7 @@ links to the tutorials and docs for those who want to follow along.
 * [ ] [Auth0 React SDK](https://auth0.com/docs/libraries/auth0-react)
 
 ### NextJS
-* [x] [Basic NextJS Application](nextjs-tutorial/nextjs-blog/README.md)
-  * [ ] Blog using an external data source
+* [x] [Basic NextJS Application](nextjs-tutorial/nextjs-blog)
+  * [ ] Blog using an external data source ( maybe storage by zapier? )
 * [ ] [AWS Serverless NextJS](https://www.serverless.com/blog/serverless-nextjs)
 
