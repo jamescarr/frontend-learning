@@ -24,6 +24,7 @@ links to the tutorials and docs for those who want to follow along.
 * [ ] [Auth0 React SDK](https://auth0.com/docs/libraries/auth0-react)
 
 ### NextJS
-* [ ] [Basic NextJS Application](https://nextjs.org/learn/basics/create-nextjs-app)
+* [x] [Basic NextJS Application](nextjs-tutorial/nextjs-blog/README.md)
+  * [ ] Blog using an external data source
 * [ ] [AWS Serverless NextJS](https://www.serverless.com/blog/serverless-nextjs)
 
