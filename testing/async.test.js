@@ -1,3 +1,4 @@
+
 // Callbacks
 function fetchData(cb) {
     setTimeout(() => {
@@ -14,7 +15,7 @@ test('the data is peanut butter', () => {
     fetchData(callback);
 });
 
-test('the data is peanut butter', done => {
+test('throws and asserts an exception', done => {
     function callback(data) {
         try {
             expect(data).toBe('peanut butter');
@@ -42,7 +43,7 @@ async function fetchAnException() {
     throw Error('error');
 }
 
-test('the data is peanut butter', async () => {
+test('the data is async peanut butter', async () => {
     const data = await fetchAsyncData();
     expect(data).toBe('peanut butter');
 });

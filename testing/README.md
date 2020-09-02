@@ -47,3 +47,16 @@ https://jestjs.io/docs/en/setup-teardown
 
 ### Mock Functions
 https://jestjs.io/docs/en/mock-functions
+
+
+## Testing React Apps
+https://jestjs.io/docs/en/tutorial-react
+
+```bash
+yarn add react react-dom
+yarn add --dev react-test-renderer jest babel-jest @babel/preset-env @babel/preset-react react-test-renderer
+
+```
+
+
+
