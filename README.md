@@ -33,7 +33,8 @@ links to the tutorials and docs for those who want to follow along.
 * [ ] [Auth0 React SDK](https://auth0.com/docs/libraries/auth0-react)
 
 ### NextJS
-* [x] [Basic NextJS Application](nextjs-tutorial/nextjs-blog)
-  * [ ] Blog using an external data source ( maybe storage by zapier? )
+* [x] [Basic NextJS Application](nextjs/nextjs-blog)
+  * [ ] Blog using an external data source
+* [ ] [Testing NextJS Applications with Jest](nextjs/todo) - in progress todo list app on Next.js
 * [ ] [AWS Serverless NextJS](https://www.serverless.com/blog/serverless-nextjs)
 
