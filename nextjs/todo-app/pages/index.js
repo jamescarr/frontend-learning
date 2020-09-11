@@ -1,65 +1,81 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import React, {useState} from 'react'
+import {useQuery, useMutation} from '@apollo/react-hooks'
+import {gql} from 'apollo-boost'
+
+const GET_TODOS = gql`
+query {
+    todos {
+        id
+        description
+        done
+    }
+}
+
+`
+
+const CREATE_TODO = gql`
+  mutation CreateTodo($description: String!) {
+    createTodo(description: $description) {
+      id
+      description
+      done
+    }
+  }
+`
+const COMPLETE_TODO = gql`
+  mutation CompleteTodo($id: ID!) {
+    completeTodo(id: $id) {
+      id
+    }
+  }
+`
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    const {loading, error, data, refetch} = useQuery(GET_TODOS);
+    const [todo, setTodo] = useState("");
+    const [createTodo] = useMutation(CREATE_TODO);
+    const [completeTodo] = useMutation(COMPLETE_TODO)
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+    const saveTodo = async (e) => {
+        e.preventDefault();
+        await createTodo({variables: {description: todo}});
+        refetch();
+        setTodo("");
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+    }
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+    const onComplete = async (id) => {
+        await completeTodo({variables: {id}});
+        refetch();
+    }
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+    if (loading) return <p>Loading...</p>
+    if (error) return <p>ERROR :(</p>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
+    return (
+        <div>
+            <h1>My TODO list</h1>
+            <form onSubmit={saveTodo}>
+                <label>
+                    New todo
+                    <input onChange={e => setTodo(e.target.value)} value={todo} />
+                </label>
+                <button type="submit">Save</button>
+            </form>
+            {
+                data.todos.map((todo) => (
+                    <div key={todo.id}>
+                        {todo.description}
+                        <button
+                            disabled={todo.done}
+                            onClick={() => onComplete(todo.id)}
+                        >
+                            {todo.done ? "Done" : "Complete"}
+                        </button>
+                    </div>
+                ))
+            }
 
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    )
 }
