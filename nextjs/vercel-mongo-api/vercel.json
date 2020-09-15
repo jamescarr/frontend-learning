@@ -1,0 +1,7 @@
+{
+  "name": "demo-mongodb-api",
+  "version": 2,
+  "env": {
+    "MONGODB_URI": "@api-mongodb-uri"
+  }
+}
